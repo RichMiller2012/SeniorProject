@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Domain"
+                   namespace="Domain.Entities">
+
+  <class name="Customer">
+    <id name="customerId">
+      <generator class="native"/>
+    </id>
+
+    <property name="total"/>
+    <property name="phoneNumber"/>
+
+    <many-to-one name="Discount" column="discountId"/>
+
+    <bag name="account">
+      <key column="customerId"/>
+      <one-to-many class="Account"/>
+    </bag>
+ 
+    <bag name="transactions" table="LinkCustomerTransaction">
+      <key column="customerId"/>
+      <one-to-many class="Transaction"/>
+    </bag>
+
+    <bag name="stores" table="LinkCustomerStore">
+      <key column="customerId"/>
+      <many-to-many class="Store" column="storeId"/>
+    </bag>
+
+    <bag name="items" table="LinkCustomerItem">
+      <key column="customerId"/>
+      <many-to-many class="Item" column="itemId"/>
+    </bag>
+    
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Domain"
+                   namespace="Domain.Entities">
+  <class name="Discount">
+    <id name="discountId">
+      <generator class="native"/>
+    </id>
+
+    <property name="percentRate"/>
+    <property name="amount"/>
+
+    <many-to-one name="Store" column="storeId"/>
+    
+    <
+    
+    
+    
+  </class>
+  
+  
+  
+</hibernate-mapping>

@@ -1,0 +1,5 @@
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorDomain\SeniorDomain\bin\Debug\SeniorDomain.dll
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorDomain\SeniorDomain\bin\Debug\SeniorDomain.pdb
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorDomain\SeniorDomain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorDomain\SeniorDomain\obj\Debug\SeniorDomain.dll
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorDomain\SeniorDomain\obj\Debug\SeniorDomain.pdb
