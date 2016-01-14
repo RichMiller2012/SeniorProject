@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   assembly="Domain"
+                   assembly="SeniorProject"
                    namespace="Domain.Entities">
   <class name="Store">
     <id name="storeId">
       <generator class="native"/>
     </id>
+
+    <property name="name" />
 
     <one-to-one class="Inventory" name="inventory"/>
 
@@ -16,7 +18,7 @@
 
     <bag name="transactions">
       <key column="storeId"/>
-      <one-to-many class="Transaction"/>
+      <one-to-many class="Transactions"/>
     </bag>
     
   </class>

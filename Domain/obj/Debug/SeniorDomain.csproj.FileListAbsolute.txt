@@ -1,9 +1,0 @@
-c:\users\rich\documents\visual studio 2012\Projects\SeniorDomain\SeniorDomain\bin\Debug\SeniorDomain.dll
-c:\users\rich\documents\visual studio 2012\Projects\SeniorDomain\SeniorDomain\bin\Debug\SeniorDomain.pdb
-c:\users\rich\documents\visual studio 2012\Projects\SeniorDomain\SeniorDomain\bin\Debug\Iesi.Collections.dll
-c:\users\rich\documents\visual studio 2012\Projects\SeniorDomain\SeniorDomain\bin\Debug\NHibernate.dll
-c:\users\rich\documents\visual studio 2012\Projects\SeniorDomain\SeniorDomain\bin\Debug\Iesi.Collections.xml
-c:\users\rich\documents\visual studio 2012\Projects\SeniorDomain\SeniorDomain\bin\Debug\NHibernate.xml
-c:\users\rich\documents\visual studio 2012\Projects\SeniorDomain\SeniorDomain\obj\Debug\SeniorDomain.csprojResolveAssemblyReference.cache
-c:\users\rich\documents\visual studio 2012\Projects\SeniorDomain\SeniorDomain\obj\Debug\SeniorDomain.dll
-c:\users\rich\documents\visual studio 2012\Projects\SeniorDomain\SeniorDomain\obj\Debug\SeniorDomain.pdb

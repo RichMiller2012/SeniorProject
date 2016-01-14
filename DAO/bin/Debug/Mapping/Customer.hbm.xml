@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   assembly="Domain"
+                   assembly="SeniorProject"
                    namespace="Domain.Entities">
 
   <class name="Customer">
@@ -11,7 +11,7 @@
     <property name="total"/>
     <property name="phoneNumber"/>
 
-    <many-to-one name="Discount" column="discountId"/>
+    <many-to-one name="discount" column="discountId"/>
 
     <bag name="account">
       <key column="customerId"/>
@@ -20,7 +20,7 @@
  
     <bag name="transactions" table="LinkCustomerTransaction">
       <key column="customerId"/>
-      <one-to-many class="Transaction"/>
+      <one-to-many class="Transactions"/>
     </bag>
 
     <bag name="stores" table="LinkCustomerStore">

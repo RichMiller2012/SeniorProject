@@ -15,7 +15,7 @@ namespace Domain.Entities
         public virtual Discount discount { get; set; }
 
         public virtual IList<Account> account { get; set; }
-        public virtual IList<Transaction> transactions { get; set; }
+        public virtual IList<Transactions> transactions { get; set; }
         public virtual IList<Store> stores { get; set; }
         public virtual IList<Item> items { get; set; }     
     }         

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Domain.Entities
 {
     public class Item
     {
@@ -17,7 +17,7 @@ namespace Domain
                 
         public virtual IList<Barcode> barcodes { get; set; }
         public virtual IList<PartNo> partNos { get; set; }
-        public virtual IList<Transaction> transactions { get; set; }
+        public virtual IList<Transactions> transactions { get; set; }
         public virtual IList<Customer> customers { get; set; }
         public virtual IList<Dates> saleDate { get; set; }
         public virtual IList<Dates> inDate { get; set; }

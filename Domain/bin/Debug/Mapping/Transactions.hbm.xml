@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SeniorProject"
+                   namespace="Domain.Entities">
+
+  <class name="Transactions">
+    <id name="transactionId">
+      <generator class="native"/>
+    </id>
+
+    <property name="taxRate"/>
+    <property name="totalAmount"/>
+
+    <many-to-one name="customer" column="customerId"/>
+    <many-to-one name="store" column="storeId"/>
+    <many-to-one name="date" column="dateId"/>
+
+    <bag name="items" table="LinkItemTransaction">
+      <key column="transactionId"/>
+      <many-to-many class="Item" column="itemId"/>
+    </bag>
+    
+  </class>
+</hibernate-mapping>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   assembly="Domain"
+                   assembly="SeniorProject"
                    namespace="Domain.Entities">
   
   <class name="Item">
@@ -13,7 +13,7 @@
     <property name="wholesalePrice"/>
     <property name="quantity"/>
 
-    <many-to-one name="Inventory" column="inventoryId"/>
+    <many-to-one name="inventory" column="inventoryId"/>
 
     <bag name="barcodes">
       <key column="itemId"/>
@@ -27,17 +27,17 @@
 
     <bag name="transactions" table="LinkItemTransaction">
       <key column="itemId"/>
-      <many-to-many class="Transaction" column="itemId"/>
+      <many-to-many class="Transactions" column="transactionsId"/>
     </bag>
 
     <bag name="saleDate" table="LinkItemSaleDates">
       <key column="itemId"/>
-      <many-to-many class="Date" />
+      <many-to-many class="Dates" column="dateId"/>
     </bag>
 
     <bag name="inDate" table="LinkItemInDate">
       <key column="itemId"/>
-      <many-to-many class="Date" />
+      <many-to-many class="Dates" column="dateId" />
     </bag>
 
     <bag name="customers" table="LinkCustomerItem">
