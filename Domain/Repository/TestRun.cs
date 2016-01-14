@@ -6,9 +6,8 @@ using Domain.Entities;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using System.Reflection;
-using Domain.Entities;
 
-namespace DAO.Repository
+namespace Domain.Repository
 {
     class TestRun
     {

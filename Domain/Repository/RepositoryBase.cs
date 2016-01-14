@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Linq;
 
-namespace DAO.Repository
+namespace Domain.Repository
 {
     public class RepositoryBase : IRepository, IDisposable
     {
