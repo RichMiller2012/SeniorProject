@@ -7,30 +7,36 @@
     <id name="customerId">
       <generator class="native"/>
     </id>
-
+    
     <property name="total"/>
     <property name="phoneNumber"/>
+    <property name="firstName"/>
+    <property name="lastName"/>
+    <property name="middleName"/>
+    
 
     <many-to-one name="discount" column="discountId"/>
 
-    <bag name="account">
+    <bag name="account" cascade="all">
       <key column="customerId"/>
       <one-to-many class="Account"/>
     </bag>
  
-    <bag name="transactions" table="LinkCustomerTransaction">
+    <bag name="transactions" cascade="all" lazy="false" >
       <key column="customerId"/>
       <one-to-many class="Transactions"/>
     </bag>
 
+    <!--
     <bag name="stores" table="LinkCustomerStore">
       <key column="customerId"/>
       <many-to-many class="Store" column="storeId"/>
     </bag>
+    -->
 
-    <bag name="items" table="LinkCustomerItem">
+    <bag name="saleItems" table="LinkCustomerSaleItem" cascade="all">
       <key column="customerId"/>
-      <many-to-many class="Item" column="itemId"/>
+      <many-to-many class="SaleItem" column="saleItemId"/>
     </bag>
     
   </class>

@@ -9,8 +9,13 @@ namespace Domain.Entities
     public class Inventory
     {
         public virtual int inventoryId { get; set; }
+        public virtual string name { get; set; }
         public virtual Store store { get; set; }
+        public virtual IList<Item> items { get; set; }
 
-        public virtual IList<Item> items { get; set; }      
+        public Inventory()
+        {
+            items = new List<Item>();
+        }
     }
 }

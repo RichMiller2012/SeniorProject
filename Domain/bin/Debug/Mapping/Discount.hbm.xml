@@ -10,14 +10,11 @@
     <property name="percentRate"/>
     <property name="amount"/>
 
-  
-    
-    
-   
-    
-    
+    <many-to-one name="store" column="storeId"/>
+
+    <bag name ="customers" cascade="all">
+      <key column ="discountId"/>
+      <one-to-many class="Customer"/>
+    </bag>
   </class>
-  
-  
-  
 </hibernate-mapping>

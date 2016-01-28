@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Linq;
 
-namespace Domain.Repository
+namespace DAO.Repository
 {
     public class RepositoryBase : IRepository, IDisposable
     {
         protected ISession session = null;
         protected ITransaction transaction = null;
+
+        public ISession getSession()
+        {
+            return session;
+        }
 
         public RepositoryBase()
         {
@@ -63,6 +68,7 @@ namespace Domain.Repository
         public virtual void save(object obj)
         {
             session.SaveOrUpdate(obj);
+            session.Flush();
         }
 
         public virtual void delete(object obj)

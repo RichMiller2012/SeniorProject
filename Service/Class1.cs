@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Repository
+namespace Service
 {
-    class Seed
+    public class Class1
     {
     }
 }

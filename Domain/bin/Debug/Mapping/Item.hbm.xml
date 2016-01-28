@@ -9,42 +9,46 @@
     </id>
 
     <property name="name"/>
+    <property name="description"/>
     <property name="retailPrice"/>
     <property name="wholesalePrice"/>
     <property name="quantity"/>
 
     <many-to-one name="inventory" column="inventoryId"/>
 
-    <bag name="barcodes">
+    <bag name="barcodes" cascade="all">
       <key column="itemId"/>
       <one-to-many class="Barcode"/>
     </bag>
 
-    <bag name="partNos">
+    <bag name="partNos" cascade="all">
       <key column="itemId"/>
-      <one-to-many class="PartNo"/>
+      <one-to-many class="PartNo" />
     </bag>
 
-    <bag name="transactions" table="LinkItemTransaction">
+    <!-- add dates later
+    <bag name="saleDate" cascade="all" >
       <key column="itemId"/>
-      <many-to-many class="Transactions" column="transactionsId"/>
+      <one-to-many class="Dates" />
+    </bag>-->
+    
+
+    <bag name="inDate" cascade="all" >
+      <key column="itemId"/>
+      <one-to-many class="Dates" />
     </bag>
 
-    <bag name="saleDate" table="LinkItemSaleDates">
-      <key column="itemId"/>
-      <many-to-many class="Dates" column="dateId"/>
-    </bag>
-
-    <bag name="inDate" table="LinkItemInDate">
-      <key column="itemId"/>
-      <many-to-many class="Dates" column="dateId" />
-    </bag>
-
+      <!--LinkCustomerITem
     <bag name="customers" table="LinkCustomerItem">
       <key column="itemId"/>
       <many-to-many class="Customer" column="customerId"/>
-    </bag>
-    
+    </bag>-->
+
+    <!--LinkItemTransaction
+    <bag name="transactions" table="LinkItemTransaction" cascade="all">
+      <key column="itemId"/>
+      <many-to-many class="Transactions" column="transactionsId"/>
+    </bag>-->
   </class>
   
   

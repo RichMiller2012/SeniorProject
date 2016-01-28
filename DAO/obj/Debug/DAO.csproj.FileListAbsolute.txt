@@ -1,5 +1,3 @@
-C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\DAO.pdb
-C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\obj\Debug\DAO.pdb
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\Mapping\Account.hbm.xml
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\Mapping\Barcode.hbm.xml
@@ -12,11 +10,14 @@ C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\Mapping\Store.hbm.xml
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\Mapping\Transactions.hbm.xml
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\hibernate.cfg.xml
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\Mapping\SaleItem.hbm.xml
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\DAO.exe
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\DAO.pdb
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\Iesi.Collections.dll
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\NHibernate.dll
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\SeniorProject.dll
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\SeniorProject.pdb
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\Iesi.Collections.xml
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\NHibernate.xml
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\obj\Debug\DAO.exe
-C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\bin\Debug\SeniorProject.dll
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\DAO\obj\Debug\DAO.pdb

@@ -10,9 +10,18 @@ namespace Domain.Entities
     {
         public virtual int storeId { get; set; }
         public virtual string name { get; set; }
-        public virtual Inventory inventory { get; set; }
-
+        
+        public virtual IList<Inventory> inventories { get; set; }
         public virtual IList<Customer> customers { get; set; }
         public virtual IList<Transactions> transactions { get; set; }
+        public virtual IList<Discount> discounts { get; set; }
+
+        public Store()
+        {
+            customers = new List<Customer>();
+            transactions = new List<Transactions>();
+            inventories = new List<Inventory>();
+            discounts = new List<Discount>();
+        }
     }
 }

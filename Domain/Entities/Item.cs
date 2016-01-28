@@ -11,18 +11,23 @@ namespace Domain.Entities
     {
         public virtual int itemId { get; set; }
         public virtual string  name { get; set; }
+        public virtual string description { get; set; }
         public virtual double retailPrice { get; set; }
         public virtual double wholesalePrice { get; set; }
         public virtual int quantity { get; set; }
+        
                 
         public virtual IList<Barcode> barcodes { get; set; }
         public virtual IList<PartNo> partNos { get; set; }
-        public virtual IList<Transactions> transactions { get; set; }
-        public virtual IList<Customer> customers { get; set; }
-        public virtual IList<Dates> saleDate { get; set; }
         public virtual IList<Dates> inDate { get; set; }
                 
         public virtual Inventory inventory { get; set; }
 
+        public Item()
+        {
+            barcodes = new List<Barcode>();
+            partNos = new List<PartNo>();
+            inDate = new List<Dates>();
+        }
     }
 }

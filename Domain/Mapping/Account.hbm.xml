@@ -8,6 +8,10 @@
       <generator class="native" />
     </id>
 
+    <property name="number" />
+    <property name="username"/>
+    <property name="password"/>
+     
     <many-to-one name="customer" column="customerId" />
   </class>
 </hibernate-mapping>

@@ -9,6 +9,9 @@ namespace Domain.Entities
     public class Customer
     {
         public virtual int customerId { get; set; }
+        public virtual string firstName { get; set; }
+        public virtual string  middleName { get; set; }
+        public virtual string lastName { get; set; }
         public virtual double total { get; set; }
         public virtual string phoneNumber { get; set; }
                
@@ -16,7 +19,13 @@ namespace Domain.Entities
 
         public virtual IList<Account> account { get; set; }
         public virtual IList<Transactions> transactions { get; set; }
-        public virtual IList<Store> stores { get; set; }
-        public virtual IList<Item> items { get; set; }     
+        public virtual IList<SaleItem> saleItems { get; set; }
+
+        public Customer()
+        {
+            transactions = new List<Transactions>();
+            saleItems = new List<SaleItem>();
+            account = new List<Account>();
+        }
     }         
 }

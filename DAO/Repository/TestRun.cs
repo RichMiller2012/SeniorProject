@@ -7,7 +7,8 @@ using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using System.Reflection;
 
-namespace Domain.Repository
+
+namespace DAO.Repository
 {
     class TestRun
     {
@@ -15,19 +16,10 @@ namespace Domain.Repository
         {
             LoadNHibernateCfg();
 
-            using (RepositoryBase repository = new RepositoryBase())
-            {
-                repository.beginTransaction();
+            Seeds seeds = new Seeds();
 
-                Store store = new Store() { name = "The New Store" };
-                Store store2 = new Store() { name = "Another Store" };
-                Store store3 = new Store() { name = "The Third Store" };
-
-                repository.save(store);
-                repository.save(store2);
-                repository.save(store3);
-            }
-            
+            seeds.setupDB();
+      
 
             Console.ReadKey();
         }
@@ -43,6 +35,7 @@ namespace Domain.Repository
 
             cfg.AddAssembly("SeniorProject");
             new SchemaExport(cfg).Execute(true, true, false);
+
         }
     }
 }

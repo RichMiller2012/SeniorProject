@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BE0AED4E-A436-4078-A29A-3FF54A0C7025}</ProjectGuid>
+    <ProjectGuid>{F2B69E8D-0E76-4BFC-8E8F-47E1E41D18FA}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Domain</RootNamespace>
+    <RootNamespace>DAO</RootNamespace>
     <AssemblyName>DAO</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -48,17 +48,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CustomerDAO.cs" />
+    <Compile Include="Data\CustomerDAOImpl.cs" />
+    <Compile Include="Data\ItemDAO.cs" />
+    <Compile Include="Data\ItemDAOImpl.cs" />
+    <Compile Include="Data\SaleItemDAO.cs" />
+    <Compile Include="Data\SaleItemDAOImpl.cs" />
+    <Compile Include="Data\TransactionsDAO.cs" />
+    <Compile Include="Data\TransactionsDAOImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\Seed.cs" />
+    <Compile Include="Repository\TestRun.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{07bcacbb-0cc4-45fb-aa51-e13ea40bb2c5}</Project>
       <Name>Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

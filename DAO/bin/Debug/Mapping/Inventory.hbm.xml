@@ -7,9 +7,13 @@
     <id name="inventoryId">
       <generator class="native"/>
     </id>
+    
+    <property name="name"/>
 
-    <bag name="items">
-      <key column="invetoryId"/>
+    <many-to-one name="store" column="storeId"/>
+
+    <bag name="items" cascade="all">
+      <key column="inventoryId"/>
       <one-to-many class="Item"/>
     </bag>
     

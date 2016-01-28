@@ -10,5 +10,8 @@ namespace Domain.Entities
     {
         public virtual int dateId { get; set; }
         public virtual DateTime date { get; set; }
+
+        public virtual Item item { get; set; }
+
     }
 }

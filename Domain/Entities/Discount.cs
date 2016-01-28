@@ -11,5 +11,12 @@ namespace Domain.Entities
         public virtual int discountId { get; set; }
         public virtual double percentRate { get; set; }
         public virtual double amount { get; set; }
+        public virtual IList<Customer> customers { get; set; }
+        public virtual Store store { get; set; }
+
+        public Discount()
+        {
+            customers = new List<Customer>();
+        }
     }
 }

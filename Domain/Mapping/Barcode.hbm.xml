@@ -8,6 +8,8 @@
       <generator class="native"/>
     </id>
 
+    <property name="number"/>
+
     <many-to-one name="item" column="itemId"/>
   </class>
   

@@ -10,14 +10,16 @@
 
     <property name="taxRate"/>
     <property name="totalAmount"/>
+    <property name="date"/>
+    <property name="transactionNumber"/>
+  
 
-    <many-to-one name="customer" column="customerId"/>
+    <many-to-one name="customer" column="customerId" />
     <many-to-one name="store" column="storeId"/>
-    <many-to-one name="date" column="dateId"/>
-
-    <bag name="items" table="LinkItemTransaction">
-      <key column="transactionId"/>
-      <many-to-many class="Item" column="itemId"/>
+    
+    <bag name="saleItems" cascade="all">
+      <key column="transactionId" />
+      <one-to-many class="SaleItem" />
     </bag>
     
   </class>

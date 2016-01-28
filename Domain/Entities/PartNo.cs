@@ -9,6 +9,11 @@ namespace Domain.Entities
     public class PartNo
     {
         public virtual int partNoId { get; set; }
+        public virtual string number { get; set; }
         public virtual Item item { get; set; }
+
+        public PartNo()
+        {
+        }
     }
 }

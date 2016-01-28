@@ -3,22 +3,31 @@
                    assembly="SeniorProject"
                    namespace="Domain.Entities">
   <class name="Store">
+    
     <id name="storeId">
       <generator class="native"/>
     </id>
 
     <property name="name" />
 
-    <one-to-one class="Inventory" name="inventory"/>
-
-    <bag name="customers" table="LinkCustomerStore">
+    <bag name="inventories" cascade="all">
       <key column="storeId"/>
-      <many-to-many class="Customer" column="customerId"/>
+      <one-to-many class="Inventory"/>
     </bag>
 
-    <bag name="transactions">
+    <bag name="transactions" cascade="all">
       <key column="storeId"/>
       <one-to-many class="Transactions"/>
+    </bag>
+
+    <bag name="discounts" cascade="all">
+      <key column="storeId"/>
+      <one-to-many class="Discount"/>
+    </bag>
+    
+    <bag name="customers" table="LinkCustomerStore" cascade="all">
+      <key column="storeId"/>
+      <many-to-many class="Customer" column="customerId" />
     </bag>
     
   </class>
