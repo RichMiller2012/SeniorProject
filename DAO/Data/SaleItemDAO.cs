@@ -15,6 +15,7 @@ namespace DAO.Data
         List<SaleItem> getAllSaleItems();
         List<SaleItem> getSaleItemsByTransactionNumber(string transactionNumber);
         List<SaleItem> getSaleItemsByCustomer(Customer customer);
+        List<SaleItem> getSaleItemsByStore(Store store);
         SaleItem getSaleItemByBarcode(string barcode);
         SaleItem getSaleItemByPartNo(string partNo);
 

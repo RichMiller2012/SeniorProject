@@ -9,9 +9,9 @@ using Domain.NHConfiguration;
 
 namespace DAO.Data
 {
-    public class SaleItemDAOImpl
+    public class SaleItemDAOImpl : SaleItemDAO
     {
-        List<SaleItem> getAllSaleItems()
+        public List<SaleItem> getAllSaleItems()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -22,7 +22,7 @@ namespace DAO.Data
                 }
             }
         }
-        List<SaleItem> getSaleItemsByTransactionNumber(string transactionNumber)
+        public List<SaleItem> getSaleItemsByTransactionNumber(string transactionNumber)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -37,7 +37,7 @@ namespace DAO.Data
                 }
             }
         }
-        List<SaleItem> getSaleItemsByCustomer(Customer customer)
+        public List<SaleItem> getSaleItemsByCustomer(Customer customer)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -52,7 +52,17 @@ namespace DAO.Data
                 }
             }
         }
-        SaleItem getSaleItemByBarcode(string barcode)
+        public List<SaleItem> getSaleItemByStore(Store store)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                                                                 
+                }
+            }
+        }
+        public SaleItem getSaleItemByBarcode(string barcode)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -66,7 +76,7 @@ namespace DAO.Data
                 }
             }
         }
-        SaleItem getSaleItemByPartNo(string partNo)
+        public SaleItem getSaleItemByPartNo(string partNo)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {

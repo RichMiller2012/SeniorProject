@@ -50,10 +50,16 @@
   <ItemGroup>
     <Compile Include="Data\CustomerDAO.cs" />
     <Compile Include="Data\CustomerDAOImpl.cs" />
+    <Compile Include="Data\DiscountDAO.cs" />
+    <Compile Include="Data\DiscountDAOImpl.cs" />
+    <Compile Include="Data\InventoryDAO.cs" />
+    <Compile Include="Data\InventoryDAOImpl.cs" />
     <Compile Include="Data\ItemDAO.cs" />
     <Compile Include="Data\ItemDAOImpl.cs" />
     <Compile Include="Data\SaleItemDAO.cs" />
     <Compile Include="Data\SaleItemDAOImpl.cs" />
+    <Compile Include="Data\StoreDAO.cs" />
+    <Compile Include="Data\StoreDAOImpl.cs" />
     <Compile Include="Data\TransactionsDAO.cs" />
     <Compile Include="Data\TransactionsDAOImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

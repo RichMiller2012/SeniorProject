@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Entities;
@@ -64,6 +63,22 @@ namespace DAO.Data
                         .Where(c => c.middleName == name)
                         .List<Customer>();
                     return (List<Customer>)customers;
+                }
+            }
+        }
+
+        public List<Customer> getCustomersByStore(Store store)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var queryStore = session.QueryOver<Store>()
+                        .Where(s => s == store)
+                        .Fetch(c => c.customers).Eager
+                        .List<Store>();
+
+                    return (List<Customer>)((Store)queryStore).customers;
                 }
             }
         }

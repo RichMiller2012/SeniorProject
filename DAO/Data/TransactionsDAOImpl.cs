@@ -10,9 +10,9 @@ using Domain.NHConfiguration;
 
 namespace DAO.Data
 {
-    public class TransactionsDAOImpl
+    public class TransactionsDAOImpl : TransactionsDAO
     {
-        List<Transactions> getAllTransactions()
+        public List<Transactions> getAllTransactions()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -23,7 +23,7 @@ namespace DAO.Data
                 }
             }
         }
-        List<Transactions> getTransactionByCustomer(Customer customer)
+        public List<Transactions> getTransactionByCustomer(Customer customer)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -38,7 +38,7 @@ namespace DAO.Data
                 }
             }
         }
-        Transactions getTransactionByNumber(string transactionNumber)
+        public Transactions getTransactionByNumber(string transactionNumber)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {

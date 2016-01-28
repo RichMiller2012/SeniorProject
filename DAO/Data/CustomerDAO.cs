@@ -17,6 +17,7 @@ namespace DAO.Data
         List<Customer> getCustomersByFirstName(string name);
         List<Customer> getCustomersByLastName(string name); 
         List<Customer> getCustomersByMiddleName(string name);
+        List<Customer> getCustomersByStore(Store store);
         Customer getCustomerByPhoneNumber(string number);
         Customer getCustomerByTransactionNumber(string transactionNumber);
         Customer getCustomerByAccountNumber(string number);
