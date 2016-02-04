@@ -144,6 +144,16 @@ namespace DAO.Repository
 
         public void readDB()
         {
+            SaleItemDAOImpl dao = new SaleItemDAOImpl();
+
+            List<SaleItem> items = dao.getSaleItemsByTransactionNumber("1");
+
+            Console.WriteLine("------------------------------------------------");
+            foreach (SaleItem item in items)
+            {
+                Console.WriteLine(item.name);
+                Console.WriteLine(item.salePrice);
+            }
 
         }
 

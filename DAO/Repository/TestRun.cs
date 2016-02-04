@@ -19,6 +19,8 @@ namespace DAO.Repository
             Seeds seeds = new Seeds();
 
             seeds.setupDB();
+
+            seeds.readDB();
       
 
             Console.ReadKey();
