@@ -25,9 +25,9 @@ namespace Domain.Entities
         //depends on existing item
         public SaleItem(Item item)
         {
-            name = item.name;
             barcodes = item.barcodes;
             partNos = item.partNos;
+            name = item.name;
         }
     }
 }

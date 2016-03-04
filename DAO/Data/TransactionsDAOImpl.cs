@@ -10,7 +10,7 @@ using Domain.NHConfiguration;
 
 namespace DAO.Data
 {
-    public class TransactionsDAOImpl : TransactionsDAO
+    public class TransactionsDAOImpl : AbstractBaseDAO, TransactionsDAO
     {
         public List<Transactions> getAllTransactions()
         {
@@ -18,23 +18,25 @@ namespace DAO.Data
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    var Transaction = session.CreateCriteria<Transactions>().List<SaleItem>();
+                    var Transaction = session.CreateCriteria<Transactions>().List<Transactions>();
                     return (List<Transactions>)Transaction;
                 }
             }
         }
-        public List<Transactions> getTransactionByCustomer(Customer customer)
+        public List<Transactions> getTransactionByCustomer(int customerId)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
                     var cust = session.QueryOver<Customer>()
-                        .Where(c => c == customer)
+                        .Where(c => c.customerId == customerId)
                         .Fetch(t => t.transactions).Eager
-                        .List<Transactions>();
+                        .SingleOrDefault();
 
-                    return (List<Transactions>)((Customer)cust).transactions;
+                    Customer customer = (Customer)cust;
+
+                    return mapToList(customer.transactions);
                 }
             }
         }
@@ -51,6 +53,17 @@ namespace DAO.Data
                     return (Transactions)trans;
                 }
             }
+        }
+
+        private List<Transactions> mapToList(ICollection<Transactions> transactions)
+        {
+            List<Transactions> trans = new List<Transactions>();
+            foreach (Transactions t in transactions)
+            {
+                trans.Add(t);
+            }
+
+            return trans;
         }
     }
 }

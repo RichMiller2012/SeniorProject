@@ -11,7 +11,7 @@ using Domain.NHConfiguration;
 
 namespace DAO.Data
 {
-    public class CustomerDAOImpl : CustomerDAO
+    public class CustomerDAOImpl : AbstractBaseDAO, CustomerDAO
     {
         public List<Customer> getAllCustomers()
         {
@@ -67,18 +67,20 @@ namespace DAO.Data
             }
         }
 
-        public List<Customer> getCustomersByStore(Store store)
+        public List<Customer> getCustomersByStore(int storeId)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
                     var queryStore = session.QueryOver<Store>()
-                        .Where(s => s == store)
+                        .Where(s => s.storeId == storeId)
                         .Fetch(c => c.customers).Eager
-                        .List<Store>();
+                        .SingleOrDefault();
 
-                    return (List<Customer>)((Store)queryStore).customers;
+                    Store store = (Store)queryStore;
+
+                    return mapToList(store.customers);
                 }
             }
         }
@@ -108,7 +110,9 @@ namespace DAO.Data
                         .Fetch(e => e.customer).Eager
                         .SingleOrDefault();
 
-                     return ((Transactions)trans).customer;
+                    Transactions tr = (Transactions)trans;
+
+                    return tr.customer;
                     
                 }
             }
@@ -136,12 +140,23 @@ namespace DAO.Data
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    Customer customers = session.QueryOver<Customer>()
+                    Customer customer = session.QueryOver<Customer>()
                         .Where(c => c.customerId == id)
                         .SingleOrDefault();
-                    return (Customer)customers;
+                    return (Customer)customer;
                 }
             }
+        }
+
+        private List<Customer> mapToList(ICollection<Customer> customers)
+        {
+            List<Customer> listCustomers = new List<Customer>();
+            foreach (Customer c in customers)
+            {
+                listCustomers.Add(c);
+            }
+
+            return listCustomers;
         }
     }
 }

@@ -13,10 +13,19 @@ namespace DAO.Data
     public interface ItemDAO
     {
         List<Item> getAllItems();
+
         List<Item> getItemsByInDateRange(DateTime inDay, DateTime outDay);
+
         List<Item> getItemsByInventory(int inventroyId);
+
         List<Item> getItemsByStore(int storeId);
+
+        Item getItemById(int id);
+
         Item getItemByBarcode(string barcode);
-        Item getITemByPartNo(string partNo);
+
+        Item getItemByPartNo(string partNo);
+
+        virtual void save(object obj);
     }
 }

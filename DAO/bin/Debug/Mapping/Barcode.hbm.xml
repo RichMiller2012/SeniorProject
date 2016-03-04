@@ -11,6 +11,8 @@
     <property name="number"/>
 
     <many-to-one name="item" column="itemId"/>
+    <many-to-one name="saleItem" column="saleItemId"/>
+  
   </class>
   
   

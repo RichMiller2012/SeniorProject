@@ -10,7 +10,7 @@ namespace DAO.Data
     public interface TransactionsDAO
     {
         List<Transactions> getAllTransactions();
-        List<Transactions> getTransactionByCustomer(Customer customer);
+        List<Transactions> getTransactionByCustomer(int customerId);
         Transactions getTransactionByNumber(string transactionNumber);
     }
 }

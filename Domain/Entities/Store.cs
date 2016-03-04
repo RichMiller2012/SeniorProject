@@ -10,6 +10,7 @@ namespace Domain.Entities
     {
         public virtual int storeId { get; set; }
         public virtual string name { get; set; }
+        public virtual double taxRate { get; set; }
         
         public virtual IList<Inventory> inventories { get; set; }
         public virtual IList<Customer> customers { get; set; }

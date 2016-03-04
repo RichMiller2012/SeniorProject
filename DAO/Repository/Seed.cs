@@ -72,13 +72,13 @@ namespace DAO.Repository
 
             //begin making transactions (no business logic for subtracting quantity)
             //add item to customer to track the items they purchase
-            Transactions bobTransaction = new Transactions() { transactionNumber="1", taxRate = 9, date=new DateTime(2016,01,20) };
+            Transactions bobTransaction = new Transactions() { transactionNumber="11111", taxRate = 9, date=new DateTime(2016,01,20) };
             SaleItem milkSale = new SaleItem(milk) { quantity = 2, salePrice = 3.99 };
             bobTransaction.saleItems.Add(milkSale);
             bob.transactions.Add(bobTransaction);
             bob.saleItems.Add(milkSale);
 
-            Transactions janeTransaction = new Transactions() { transactionNumber = "2", taxRate = 9, date = new DateTime(2016, 01, 20, 16, 45, 44) };
+            Transactions janeTransaction = new Transactions() { transactionNumber = "22222", taxRate = 9, date = new DateTime(2016, 01, 20, 16, 45, 44) };
             SaleItem breadSale = new SaleItem(bread) { quantity = 2, salePrice = 1.99 };
             janeTransaction.saleItems.Add(breadSale);
             jane.transactions.Add(janeTransaction);
@@ -120,12 +120,12 @@ namespace DAO.Repository
             //test get a customer by transaction number
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Find the customer with a transaction number of 1");
-            Customer customer = customerDAO.getCustomerByTransactionNumber("1");
+            Customer customer = customerDAO.getCustomerByTransactionNumber("11111");
             Console.WriteLine(customer.firstName + "  " + customer.middleName + " " + customer.lastName + " " + customer.phoneNumber + "  " + customer.total + " Transaction Count: " + customer.transactions.Count);
             
 
             Console.WriteLine("Find the customer with a transaction number of 2");
-            customer = customerDAO.getCustomerByTransactionNumber("2");
+            customer = customerDAO.getCustomerByTransactionNumber("22222");
             Console.WriteLine(customer.firstName + "  " + customer.middleName + " " + customer.lastName + " " + customer.phoneNumber + "  " + customer.total + " Transaction Count: " + customer.transactions.Count);
             Console.WriteLine("------------------------------------------------");
 
@@ -138,15 +138,15 @@ namespace DAO.Repository
             Console.WriteLine("Scanning database.......");
             Console.WriteLine("Item found.....");
 
-            Console.WriteLine("PRINTING  INFO "  + printItem.name + " " + printItem.quantity);
-            Console.WriteLine("------------------------------------------------");
+            //Console.WriteLine("PRINTING  INFO "  + printItem.name + " " + printItem.quantity);
+            //Console.WriteLine("------------------------------------------------");
         }
 
         public void readDB()
         {
             SaleItemDAOImpl dao = new SaleItemDAOImpl();
 
-            List<SaleItem> items = dao.getSaleItemsByTransactionNumber("1");
+            List<SaleItem> items = dao.getSaleItemsByTransactionNumber("11111");
 
             Console.WriteLine("------------------------------------------------");
             foreach (SaleItem item in items)
@@ -208,12 +208,7 @@ namespace DAO.Repository
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    var item = session.QueryOver<Item>()
-                        .JoinAlias(x => x.barcodes, () => barcode)
-                        .List<Item>();
-
-                    return ((List<Item>)item)[0] ;
-
+                    return null;
                 }
             }
         }           

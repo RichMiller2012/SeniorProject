@@ -1,4 +1,10 @@
-﻿using System;
+﻿/**
+ * Implementation class for retrieval of Items.
+ * Add additional methods as needed. All methods have
+ * been functionally tested. Tests are associated with Seed.cs
+ * 
+ **/ 
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +15,7 @@ using Domain.NHConfiguration;
 
 namespace DAO.Data
 {
-    public class ItemDAOImpl : ItemDAO
+    public class ItemDAOImpl : AbstractBaseDAO, ItemDAO
     {
         public List<Item> getAllItems()
         {
@@ -27,6 +33,7 @@ namespace DAO.Data
             //TO-DO
             return null;
         }
+
         public List<Item> getItemsByInventory(int inventoryId)
         {
             using (ISession session = NHibernateHelper.OpenSession())
@@ -38,7 +45,9 @@ namespace DAO.Data
                         .Fetch(i => i.items).Eager
                         .SingleOrDefault();
 
-                    return (List<Item>)((Inventory)inventory).items;
+                    Inventory inv = (Inventory)inventory;
+
+                    return mapToList(inv.items);
                 }
             }
         }
@@ -49,33 +58,64 @@ namespace DAO.Data
             return null;
         }
 
+        public Item getItemById(int id)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    Item item = session.QueryOver<Item>()
+                        .Where(i => i.itemId == id)
+                        .SingleOrDefault();
+                    return (Item)item;
+                }
+            }
+        }
+
         public Item getItemByBarcode(string barcode)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    var item = session.QueryOver<Item>()
-                        .JoinAlias(x => x.barcodes, () => barcode)
-                        .SingleOrDefault();
+                    Barcode barcodeAlias = null;
 
-                    return (Item)item;
+                    var item = session.QueryOver<Item>()
+                        .JoinAlias(x => x.barcodes, () => barcodeAlias)
+                        .Where(() => barcodeAlias.number == barcode)
+                        .List<Item>();
+
+                    return (Item)(mapToList(item)[0]);
                 }
             }
         }
-        public Item getITemByPartNo(string partNo)
+        public Item getItemByPartNo(string partNo)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    var item = session.QueryOver<Item>()
-                        .JoinAlias(x => x.partNos, () => partNo)
-                        .SingleOrDefault();
+                    PartNo partNoAlias = null;
 
-                    return (Item)item;
+                    var item = session.QueryOver<Item>()
+                        .JoinAlias(x => x.partNos, () => partNoAlias)
+                        .Where(() => partNoAlias.number == partNo)
+                        .List<Item>();
+
+                    return (Item)(mapToList(item)[0]);
                 }
             }
+        }
+
+        private List<Item> mapToList(ICollection<Item> items)
+        {
+            List<Item> listItems = new List<Item>();
+            foreach (Item item in items)
+            {
+                listItems.Add(item);
+            }
+
+            return listItems;
         }
     }
 }

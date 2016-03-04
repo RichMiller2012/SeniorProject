@@ -11,6 +11,7 @@ namespace Domain.Entities
         public virtual int partNoId { get; set; }
         public virtual string number { get; set; }
         public virtual Item item { get; set; }
+        public virtual SaleItem saleItem { get; set; }
 
         public PartNo()
         {

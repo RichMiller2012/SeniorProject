@@ -1,4 +1,10 @@
-﻿using System;
+﻿/**
+ * Implementation class for retrieval of SaleItems.
+ * Add additional methods as needed. All methods have
+ * been functionally tested. Tests are associated with Seed.cs
+ * 
+ **/ 
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +15,7 @@ using Domain.NHConfiguration;
 
 namespace DAO.Data
 {
-    public class SaleItemDAOImpl : SaleItemDAO
+    public class SaleItemDAOImpl : AbstractBaseDAO, SaleItemDAO
     {
         //
         public List<SaleItem> getAllSaleItems()
@@ -40,7 +46,7 @@ namespace DAO.Data
                 }
             }
         }
-
+        //
         public List<SaleItem> getSaleItemsByCustomer(Customer customer)
         {
             using (ISession session = NHibernateHelper.OpenSession())
@@ -57,48 +63,68 @@ namespace DAO.Data
                 }
             }
         }
+
+        //
         public List<SaleItem> getSaleItemsByStore(Store store)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    List<SaleItem> saleItems = null;
+                    List<SaleItem> saleItems = new List<SaleItem>();
 
-                    var  items = session.QueryOver<Transactions>()
+                    var  trans = session.QueryOver<Transactions>()
                         .JoinAlias(x => x.saleItems, () => saleItems)
-                        .Where(s => s.store == store)
-                        .List<SaleItem>();
+                        .Where(s => s.store.storeId == store.storeId)
+                        .List<Transactions>();
+
+                    foreach(Transactions t in ((List<Transactions>)trans))
+                    {
+                        saleItems.AddRange(mapToList(t.saleItems));
+                    }
 
                     return saleItems;
                 }
             }
         }
+
+        //
         public SaleItem getSaleItemByBarcode(string barcode)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    var item = session.QueryOver<SaleItem>()
-                        .JoinAlias(x => x.barcodes, () => barcode)
-                        .SingleOrDefault();
+                    //only getting one result. Need to make sure each barcode
+                    //is associated with one item
+                    Barcode barcodeAlias = null;
 
-                    return (SaleItem)item;
+                    var item = session.QueryOver<SaleItem>()
+                        .JoinAlias(x => x.barcodes, () => barcodeAlias)
+                        .Where(() => barcodeAlias.number == barcode)
+                        .List<SaleItem>();
+                        
+                                             
+                    return (SaleItem)(mapToList(item)[0]);
                 }
             }
         }
+        //
         public SaleItem getSaleItemByPartNo(string partNo)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
+                    PartNo partNoAlias = null;
+                    //only getting one result. Need to make sure each partNo
+                    //is associated with one item
                     var item = session.QueryOver<SaleItem>()
-                        .JoinAlias(x => x.partNos, () => partNo)
-                        .SingleOrDefault();
+                        .JoinAlias(x => x.partNos, () => partNoAlias)
+                        .Where(() => partNoAlias.number == partNo)
+                        .List<SaleItem>();
 
-                    return (SaleItem)item;
+                    return (SaleItem)(mapToList(item)[0]);
                 }
             }
         }

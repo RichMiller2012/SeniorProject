@@ -14,12 +14,12 @@
     <many-to-one name="transaction" column="transactionId"/>
 
     <bag name="barcodes" cascade="all">
-      <key column="itemId"/>
+      <key column="saleItemId"/>
       <one-to-many class="Barcode"/>
     </bag>
 
     <bag name="partNos" cascade="all">
-      <key column="itemId"/>
+      <key column="saleItemId"/>
       <one-to-many class="PartNo" />
     </bag>
     
