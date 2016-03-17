@@ -9,6 +9,8 @@ namespace Service.Services
 {
     public interface ItemService
     {
+        List<Item> getAllItems();
+
         //lookup item by barcode
         Item getItemByBarcode(string barcode);
         //lookup item by part number
@@ -42,6 +44,6 @@ namespace Service.Services
         /*
          * calculate the tax based off the rate of an item when it is sold
          */
-        double calculateTax(Item item, int quantity = 1, double taxRate);
+        double calculateTax(Item item, double taxRate, int quantity = 1);
     }
 }

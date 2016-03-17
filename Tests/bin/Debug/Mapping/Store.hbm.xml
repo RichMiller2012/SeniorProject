@@ -9,6 +9,7 @@
     </id>
 
     <property name="name" />
+    <property name="taxRate"/>
 
     <bag name="inventories" cascade="all">
       <key column="storeId"/>

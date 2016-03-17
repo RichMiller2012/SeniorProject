@@ -23,5 +23,18 @@ namespace Domain.Entities
         {
             saleItems = new List<SaleItem>();
         }
+
+        //copy constructor
+        public Transactions(Transactions trans)
+        {
+            this.transactionId = trans.transactionId;
+            this.taxRate = trans.taxRate;
+            this.totalAmount = trans.totalAmount;
+            this.transactionNumber = trans.transactionNumber;
+            this.customer = trans.customer;
+            this.store = trans.store;
+            this.date = trans.date;
+            this.saleItems = trans.saleItems;
+        }
     }
 }

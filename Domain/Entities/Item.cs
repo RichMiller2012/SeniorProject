@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,37 @@ namespace Domain.Entities
             barcodes = new List<Barcode>();
             partNos = new List<PartNo>();
             inDate = new List<Dates>();
+        }
+
+        //copy constructor
+        public Item(Item item)
+        {
+            barcodes = new List<Barcode>();
+            partNos = new List<PartNo>();
+            inDate = new List<Dates>();
+
+            this.itemId = item.itemId;
+            this.name = item.name;
+            this.description = item.description;
+            this.retailPrice = item.retailPrice;
+            this.wholesalePrice = item.wholesalePrice;
+            this.quantity = item.quantity;
+            this.inventory = item.inventory;
+            
+            foreach(Barcode b in item.barcodes)
+            {
+                this.barcodes.Add(new Barcode(b));
+            }
+
+            foreach (PartNo pn in item.partNos)
+            {
+                this.partNos.Add(new PartNo(pn));
+            }
+
+            foreach(Dates d in item.inDate)
+            {
+                this.inDate.Add(new Dates());
+            }
         }
     }
 }

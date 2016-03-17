@@ -17,5 +17,14 @@ namespace Domain.Entities
         {
             items = new List<Item>();
         }
+
+        //copy constructor
+        public Inventory(Inventory inventory)
+        {
+            this.inventoryId = inventory.inventoryId;
+            this.name = inventory.name;
+            this.store = inventory.store;
+            this.items = inventory.items;
+        }
     }
 }

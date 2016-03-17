@@ -18,5 +18,15 @@ namespace Domain.Entities
         {
             customers = new List<Customer>();
         }
+
+        //copy constructor
+        public Discount(Discount discount)
+        {
+            this.discountId = discount.discountId;
+            this.percentRate = discount.percentRate;
+            this.amount = discount.amount;
+            this.customers = discount.customers;
+            this.store = discount.store;
+        }
     }
 }

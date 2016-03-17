@@ -24,5 +24,16 @@ namespace Domain.Entities
             inventories = new List<Inventory>();
             discounts = new List<Discount>();
         }
+
+        //copy constructor
+        public Store(Store store)
+        {
+            this.storeId = store.storeId;
+            this.name = store.name;
+            this.taxRate = store.taxRate;
+            this.inventories = store.inventories;
+            this.customers = store.customers;
+            this.discounts = store.discounts;
+        }
     }
 }

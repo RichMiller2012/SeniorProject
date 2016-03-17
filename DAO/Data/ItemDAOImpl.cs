@@ -23,8 +23,12 @@ namespace DAO.Data
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    var items = session.CreateCriteria<Item>().List<Item>();
-                    return (List<Item>)items;
+                    var items = session.QueryOver<Item>()
+                        .Fetch(b => b.barcodes).Lazy
+                        .Fetch(p => p.partNos).Lazy
+                        .List<Item>();
+
+                    return mapToList(items);
                 }
             }
         }
@@ -112,7 +116,7 @@ namespace DAO.Data
             List<Item> listItems = new List<Item>();
             foreach (Item item in items)
             {
-                listItems.Add(item);
+                listItems.Add(new Item(item));
             }
 
             return listItems;

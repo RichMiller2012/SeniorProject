@@ -27,5 +27,20 @@ namespace Domain.Entities
             saleItems = new List<SaleItem>();
             account = new List<Account>();
         }
+
+        //copy constructor
+        public Customer(Customer customer)
+        {
+            this.customerId = customer.customerId;
+            this.firstName = customer.firstName;
+            this.middleName = customer.middleName;
+            this.lastName = customer.lastName;
+            this.total = customer.total;
+            this.phoneNumber = customer.phoneNumber;
+            this.discount = customer.discount;
+            this.account = customer.account;
+            this.transactions = customer.transactions;
+            this.saleItems = customer.saleItems;
+        }
     }         
 }

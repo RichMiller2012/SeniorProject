@@ -16,5 +16,14 @@ namespace Domain.Entities
         public PartNo()
         {
         }
+
+        //copy constructor
+        public PartNo(PartNo partNo)
+        {
+            this.partNoId = partNo.partNoId;
+            this.number = partNo.number;
+            this.item = partNo.item;
+            this.saleItem = partNo.saleItem;
+        }
     }
 }

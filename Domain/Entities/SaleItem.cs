@@ -29,5 +29,17 @@ namespace Domain.Entities
             partNos = item.partNos;
             name = item.name;
         }
+
+        //copy constructor
+        public SaleItem(SaleItem saleItem)
+        {
+            this.saleItemId = saleItem.saleItemId;
+            this.name = saleItem.name;
+            this.salePrice = saleItem.salePrice;
+            this.quantity = saleItem.quantity;
+            this.transaction = saleItem.transaction;
+            this.barcodes = saleItem.barcodes;
+            this.partNos = saleItem.partNos;
+        }
     }
 }

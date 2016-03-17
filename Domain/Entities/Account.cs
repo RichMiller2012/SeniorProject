@@ -17,5 +17,15 @@ namespace Domain.Entities
         public Account()
         {
         }
+
+        //copy constructor
+        public Account(Account account)
+        {
+            this.accountId = account.accountId;
+            this.number = account.number;
+            this.username = account.username;
+            this.password = account.password;
+            this.customer = account.customer;
+        }
     }
 }

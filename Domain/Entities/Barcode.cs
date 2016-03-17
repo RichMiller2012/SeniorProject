@@ -16,5 +16,14 @@ namespace Domain.Entities
         public Barcode()
         {
         }
+
+        //copy constructor
+        public Barcode(Barcode barcode)
+        {
+            this.barcodeId = barcode.barcodeId;
+            this.number = barcode.number;
+            this.item = barcode.item;
+            this.saleItem = barcode.saleItem;
+        }
     }
 }

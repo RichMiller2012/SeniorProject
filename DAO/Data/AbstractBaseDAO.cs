@@ -10,7 +10,7 @@ namespace DAO.Data
 {
     public abstract class AbstractBaseDAO
     {
-        protected ISession session = null;
+        protected ISession session = Domain.NHConfiguration.NHibernateHelper.OpenSession();
 
         public virtual void save(object obj)
         {

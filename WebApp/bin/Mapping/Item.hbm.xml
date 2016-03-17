@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SeniorProject"
+                   namespace="Domain.Entities">
+  
+  <class name="Item">
+    <id name="itemId">
+      <generator class="native"/>
+    </id>
+
+    <property name="name"/>
+    <property name="description"/>
+    <property name="retailPrice"/>
+    <property name="wholesalePrice"/>
+    <property name="quantity"/>
+
+    <many-to-one name="inventory" column="inventoryId"/>
+
+    <bag name="barcodes" cascade="all">
+      <key column="itemId"/>
+      <one-to-many class="Barcode"/>
+    </bag>
+
+    <bag name="partNos" cascade="all">
+      <key column="itemId"/>
+      <one-to-many class="PartNo" />
+    </bag>
+
+    <!-- add dates later
+    <bag name="saleDate" cascade="all" >
+      <key column="itemId"/>
+      <one-to-many class="Dates" />
+    </bag>-->
+    
+
+    <bag name="inDate" cascade="all" >
+      <key column="itemId"/>
+      <one-to-many class="Dates" />
+    </bag>
+
+      <!--LinkCustomerITem
+    <bag name="customers" table="LinkCustomerItem">
+      <key column="itemId"/>
+      <many-to-many class="Customer" column="customerId"/>
+    </bag>-->
+
+    <!--LinkItemTransaction
+    <bag name="transactions" table="LinkItemTransaction" cascade="all">
+      <key column="itemId"/>
+      <many-to-many class="Transactions" column="transactionsId"/>
+    </bag>-->
+  </class>
+  
+  
+</hibernate-mapping>

@@ -18,6 +18,11 @@ namespace Service.Services
             this.dao = dao;
         }
 
+        public List<Item> getAllItems()
+        {
+            return dao.getAllItems();
+        }
+
         public Item getItemByBarcode(string barcode)
         {
             return dao.getItemByBarcode(barcode);
@@ -65,7 +70,7 @@ namespace Service.Services
             dao.save(item);
         }
 
-        public double calculateTax(Item item, int quantity = 1, double taxRate)
+        public double calculateTax(Item item, double taxRate, int quantity = 1)
         {
             return item.retailPrice * quantity * taxRate;
         }

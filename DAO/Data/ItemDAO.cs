@@ -26,6 +26,6 @@ namespace DAO.Data
 
         Item getItemByPartNo(string partNo);
 
-        virtual void save(object obj);
+        void save(object obj);
     }
 }
