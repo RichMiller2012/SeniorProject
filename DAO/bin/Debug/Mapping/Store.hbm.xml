@@ -3,7 +3,7 @@
                    assembly="SeniorProject"
                    namespace="Domain.Entities">
   <class name="Store">
-    
+
     <id name="storeId">
       <generator class="native"/>
     </id>
@@ -25,12 +25,12 @@
       <key column="storeId"/>
       <one-to-many class="Discount"/>
     </bag>
-    
-    <bag name="customers" table="LinkCustomerStore" cascade="all">
+
+    <bag name="customers" table="LinkCustomerStore" cascade="all" inverse="true">
       <key column="storeId"/>
       <many-to-many class="Customer" column="customerId" />
     </bag>
-    
+
   </class>
-  
+
 </hibernate-mapping>

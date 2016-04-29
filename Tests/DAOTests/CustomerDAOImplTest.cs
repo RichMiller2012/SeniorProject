@@ -55,7 +55,7 @@ namespace Tests
         [TestMethod]
         public void testGetCustomerByPhoneNumber()
         {
-            Customer customer = dao.getCustomerByPhoneNumber("555-1234");
+            Customer customer = dao.getCustomerByPhoneNumber("555-1234", false);
             printCustomer(customer);
         }
 
@@ -69,7 +69,7 @@ namespace Tests
         [TestMethod]
         public void testGetCustomerByTransactionNumber()
         {
-            Customer customer = dao.getCustomerByTransactionNumber("11111");
+            Customer customer = dao.getCustomerByTransactionNumber("11111", false);
             printCustomer(customer);
         }
 
@@ -82,7 +82,7 @@ namespace Tests
         [TestMethod]
         public void testGetCustomerById()
         {
-            Customer customer = dao.getCustomerByID(1);
+            Customer customer = dao.getCustomerByID(1, true);
             printCustomer(customer);
         }
 

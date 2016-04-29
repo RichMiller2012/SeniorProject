@@ -24,7 +24,13 @@ namespace Domain.Entities
             this.inventoryId = inventory.inventoryId;
             this.name = inventory.name;
             this.store = inventory.store;
-            this.items = inventory.items;
+
+
+            items = new List<Item>();
+            foreach (Item item in inventory.items)
+            {
+                this.items.Add(new Item(item));
+            }          
         }
     }
 }

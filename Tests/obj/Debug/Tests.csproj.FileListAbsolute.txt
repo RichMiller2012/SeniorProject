@@ -25,3 +25,5 @@ C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Tests\bin\Debu
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Tests\obj\Debug\Tests.dll
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Tests\obj\Debug\Tests.pdb
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Tests\bin\Debug\Spire.Barcode.dll
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Tests\bin\Debug\Spire.Barcode.xml

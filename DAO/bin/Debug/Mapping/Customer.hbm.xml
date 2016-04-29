@@ -28,6 +28,17 @@
     </bag>
 
     <!--
+    <bag name="stores" table="LinkCustomerStore" cascade="all">
+      <key>
+        <column name="customerId"></column>
+      </key>
+      <many-to-many class="Store">
+        <column name="storeId"></column>
+      </many-to-many>
+    </bag>
+    -->
+
+    <!--
     <bag name="stores" table="LinkCustomerStore">
       <key column="customerId"/>
       <many-to-many class="Store" column="storeId"/>

@@ -23,3 +23,5 @@ C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Service\bin\De
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Service\obj\Debug\Service.dll
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Service\obj\Debug\Service.pdb
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Service\bin\Debug\Spire.Barcode.dll
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Service\bin\Debug\Spire.Barcode.xml

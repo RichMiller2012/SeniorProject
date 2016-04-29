@@ -18,4 +18,3 @@ C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Domain\bin\Deb
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Domain\bin\Debug\NHibernate.xml
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Domain\obj\Debug\SeniorProject.dll
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Domain\obj\Debug\SeniorProject.pdb
-C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache

@@ -53,6 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DAOTests\AbstractDAOTest.cs" />
     <Compile Include="DAOTests\CustomerDAOImplTest.cs" />
     <Compile Include="DAOTests\InventoryDAOImplTest.cs" />
     <Compile Include="DAOTests\ItemDAOTest.cs" />

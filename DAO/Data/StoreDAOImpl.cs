@@ -30,6 +30,7 @@ namespace DAO.Data
                 {
                     var store = session.QueryOver<Store>()
                         .Where(s => s.storeId == id)
+                        .Fetch(i => i.inventories).Eager
                         .SingleOrDefault();
 
                     return (Store)store;
@@ -49,6 +50,30 @@ namespace DAO.Data
                     return (Store)store;
                 }
             }
+        }
+
+        public int saveCustomerToStore(Customer customer, int storeId)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    Store store = session.Get<Store>(storeId);
+                    store.customers.Add(customer);
+                    //customer.stores.Add(store);
+                    
+                    transaction.Commit();
+
+                    return 1;
+                }
+            }
+        }
+
+
+
+        public int saveStore(Store store)
+        {
+            return save(store);
         }
     }
 }

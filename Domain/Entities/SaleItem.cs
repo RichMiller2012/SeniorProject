@@ -28,6 +28,7 @@ namespace Domain.Entities
             barcodes = item.barcodes;
             partNos = item.partNos;
             name = item.name;
+            salePrice = item.retailPrice;
         }
 
         //copy constructor

@@ -12,6 +12,7 @@ namespace Domain.Entities
         public virtual double taxRate { get; set; }
         public virtual double totalAmount { get; set; }
         public virtual string transactionNumber { get; set; }
+        public virtual string barcodeString { get; set; }
                 
         public virtual Customer customer { get; set; }
         public virtual Store store { get; set; }
@@ -31,6 +32,7 @@ namespace Domain.Entities
             this.taxRate = trans.taxRate;
             this.totalAmount = trans.totalAmount;
             this.transactionNumber = trans.transactionNumber;
+            this.barcodeString = trans.barcodeString;
             this.customer = trans.customer;
             this.store = trans.store;
             this.date = trans.date;

@@ -31,6 +31,13 @@ namespace Tests
             printInventories(inventories);
         }
 
+        [TestMethod]
+        public void testGetStoreInventories()
+        {
+            List<Inventory> inventories = dao.getStoreInventories(1, false);
+            printInventories(inventories);
+        }
+
         private void printInventories(List<Inventory> inv)
         {
             foreach(Inventory i in inv)
@@ -39,6 +46,8 @@ namespace Tests
                 Console.WriteLine(i.inventoryId);
             }
         }
+
+
     }
 
 

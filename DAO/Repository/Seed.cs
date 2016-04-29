@@ -120,12 +120,12 @@ namespace DAO.Repository
             //test get a customer by transaction number
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Find the customer with a transaction number of 1");
-            Customer customer = customerDAO.getCustomerByTransactionNumber("11111");
+            Customer customer = customerDAO.getCustomerByTransactionNumber("11111", false);
             Console.WriteLine(customer.firstName + "  " + customer.middleName + " " + customer.lastName + " " + customer.phoneNumber + "  " + customer.total + " Transaction Count: " + customer.transactions.Count);
             
 
             Console.WriteLine("Find the customer with a transaction number of 2");
-            customer = customerDAO.getCustomerByTransactionNumber("22222");
+            customer = customerDAO.getCustomerByTransactionNumber("22222", false);
             Console.WriteLine(customer.firstName + "  " + customer.middleName + " " + customer.lastName + " " + customer.phoneNumber + "  " + customer.total + " Transaction Count: " + customer.transactions.Count);
             Console.WriteLine("------------------------------------------------");
 

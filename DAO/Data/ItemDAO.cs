@@ -14,18 +14,14 @@ namespace DAO.Data
     {
         List<Item> getAllItems();
 
-        List<Item> getItemsByInDateRange(DateTime inDay, DateTime outDay);
-
         List<Item> getItemsByInventory(int inventroyId);
-
-        List<Item> getItemsByStore(int storeId);
 
         Item getItemById(int id);
 
-        Item getItemByBarcode(string barcode);
+        Item getItemByBarcode(string barcode, int inventoryId);
 
-        Item getItemByPartNo(string partNo);
+        Item getItemByPartNo(string partNo, int inventoryId);
 
-        void save(object obj);
+        int save(object obj);
     }
 }

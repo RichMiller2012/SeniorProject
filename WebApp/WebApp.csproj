@@ -115,13 +115,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\TestController.cs" />
-    <Compile Include="Controllers\ItemsController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
+    <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SellItem.cs" />
+    <Compile Include="Models\TransactionViewModelSimple.cs" />
+    <Compile Include="Models\UpdateQuantity.cs" />
+    <Compile Include="Models\CustomerViewModelDetailed.cs" />
+    <Compile Include="Models\CustomerViewModelSimple.cs" />
+    <Compile Include="Models\InventoryViewModelSimple.cs" />
     <Compile Include="Models\ItemViewModel.cs" />
     <Compile Include="Models\MapperUtil.cs" />
+    <Compile Include="Models\SaleItemViewModel.cs" />
+    <Compile Include="Models\TransactionViewModelDetailed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +166,9 @@
       <Project>{3e6e612a-0dcb-4a88-a419-3196982463c7}</Project>
       <Name>Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

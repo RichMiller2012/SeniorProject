@@ -12,10 +12,13 @@ namespace DAO.Data
     {
         protected ISession session = Domain.NHConfiguration.NHibernateHelper.OpenSession();
 
-        public virtual void save(object obj)
+        public virtual int save(object obj)
         {
             session.SaveOrUpdate(obj);
+            int id = (int)session.GetIdentifier(obj);
             session.Flush();
+
+            return id;
         }
 
         public virtual void delete(object obj)

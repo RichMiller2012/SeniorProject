@@ -20,12 +20,14 @@ namespace Domain.Entities
         public virtual IList<Account> account { get; set; }
         public virtual IList<Transactions> transactions { get; set; }
         public virtual IList<SaleItem> saleItems { get; set; }
+        //public virtual IList<Store> stores { get; set; }
 
         public Customer()
         {
             transactions = new List<Transactions>();
             saleItems = new List<SaleItem>();
             account = new List<Account>();
+           // stores = new List<Store>();
         }
 
         //copy constructor
@@ -41,6 +43,23 @@ namespace Domain.Entities
             this.account = customer.account;
             this.transactions = customer.transactions;
             this.saleItems = customer.saleItems;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            Customer c = (Customer)obj;
+
+            return customerId == c.customerId &&
+                firstName == c.firstName &&
+                middleName == c.middleName &&
+                lastName == c.lastName &&
+                phoneNumber == c.phoneNumber &&
+                total == c.total;
         }
     }         
 }

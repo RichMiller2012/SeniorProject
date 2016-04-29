@@ -8,6 +8,6 @@ namespace Service.CoreConstants
 {
     public class CoreConstants
     {
-        
+        public static string DOES_NOT_EXIST = "Search Item does not exist in the database";
     }
 }

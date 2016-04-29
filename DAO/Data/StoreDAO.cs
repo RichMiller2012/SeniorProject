@@ -15,5 +15,7 @@ namespace DAO.Data
         List<Store> getAllStores();
         Store getStoreByID(int id);
         Store getStoreByName(string name);
+        int saveCustomerToStore(Customer customer, int storeId);
+        int saveStore(Store store);
     }
 }

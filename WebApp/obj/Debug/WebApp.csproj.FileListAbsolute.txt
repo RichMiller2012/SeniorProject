@@ -42,3 +42,5 @@ C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\WebApp\bin\Sys
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\WebApp\obj\Debug\WebApp.dll
 C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\WebApp\obj\Debug\WebApp.pdb
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\WebApp\bin\Spire.Barcode.dll
+C:\Users\Rich\Documents\Visual Studio 2012\Projects\SeniorProject\WebApp\bin\Spire.Barcode.xml

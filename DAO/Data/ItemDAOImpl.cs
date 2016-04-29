@@ -32,11 +32,6 @@ namespace DAO.Data
                 }
             }
         }
-        public List<Item> getItemsByInDateRange(DateTime inDay, DateTime outDay)
-        {
-            //TO-DO
-            return null;
-        }
 
         public List<Item> getItemsByInventory(int inventoryId)
         {
@@ -56,27 +51,22 @@ namespace DAO.Data
             }
         }
 
-        public List<Item> getItemsByStore(int storeId)
-        {
-            //TO-DO
-            return null;
-        }
-
-        public Item getItemById(int id)
+        public Item getItemById(int itemId)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    Item item = session.QueryOver<Item>()
-                        .Where(i => i.itemId == id)
+                    var item = session.QueryOver<Item>()
+                        .Where(id => id.itemId == itemId)
                         .SingleOrDefault();
-                    return (Item)item;
+
+                    return new Item((Item)item);
                 }
             }
         }
 
-        public Item getItemByBarcode(string barcode)
+        public Item getItemByBarcode(string barcode, int inventoryId)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -84,16 +74,26 @@ namespace DAO.Data
                 {
                     Barcode barcodeAlias = null;
 
+                    
                     var item = session.QueryOver<Item>()
+                        .Where(i => i.inventory.inventoryId == inventoryId)
                         .JoinAlias(x => x.barcodes, () => barcodeAlias)
                         .Where(() => barcodeAlias.number == barcode)
                         .List<Item>();
 
-                    return (Item)(mapToList(item)[0]);
+                    try
+                    {
+                        return (Item)(mapToList(item)[0]);
+                    }
+                    catch (Exception e)
+                    {
+                        //log
+                        return new Item();
+                    }
                 }
             }
         }
-        public Item getItemByPartNo(string partNo)
+        public Item getItemByPartNo(string partNo, int inventoryId)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -102,13 +102,27 @@ namespace DAO.Data
                     PartNo partNoAlias = null;
 
                     var item = session.QueryOver<Item>()
+                        .Where(i => i.inventory.inventoryId == inventoryId)
                         .JoinAlias(x => x.partNos, () => partNoAlias)
                         .Where(() => partNoAlias.number == partNo)
                         .List<Item>();
 
-                    return (Item)(mapToList(item)[0]);
+                    try
+                    {
+                        return (Item)(mapToList(item)[0]);
+                    }
+                    catch (Exception e)
+                    {
+                        //log
+                        return new Item();
+                    }
                 }
             }
+        }
+
+        public void updateItem(Item item)
+        {
+            this.save(item);
         }
 
         private List<Item> mapToList(ICollection<Item> items)

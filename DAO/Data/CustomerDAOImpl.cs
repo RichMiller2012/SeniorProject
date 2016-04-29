@@ -75,7 +75,6 @@ namespace DAO.Data
                 {
                     var queryStore = session.QueryOver<Store>()
                         .Where(s => s.storeId == storeId)
-                        .Fetch(c => c.customers).Eager
                         .SingleOrDefault();
 
                     Store store = (Store)queryStore;
@@ -85,21 +84,29 @@ namespace DAO.Data
             }
         }
 
-        public Customer getCustomerByPhoneNumber(string number)
+        public Customer getCustomerByPhoneNumber(string number, bool withDetail)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    Customer customers = session.QueryOver<Customer>()
+                    Customer customer = session.QueryOver<Customer>()
                         .Where(c => c.phoneNumber == number)
                         .SingleOrDefault();
-                    return (Customer)customers;
+
+                    if (withDetail)
+                    {
+                        return mapDetailedCustomerData((Customer)customer);
+                    }
+                    else
+                    {
+                        return new Customer((Customer)customer);
+                    }
                 }
             }
         }
 
-        public Customer getCustomerByTransactionNumber(string number)
+        public Customer getCustomerByTransactionNumber(string number, bool withDetail)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -110,15 +117,21 @@ namespace DAO.Data
                         .Fetch(e => e.customer).Eager
                         .SingleOrDefault();
 
-                    Transactions tr = (Transactions)trans;
+                    Customer customer = trans.customer;
 
-                    return tr.customer;
-                    
+                    if (withDetail)
+                    {
+                        return mapDetailedCustomerData((Customer)customer);
+                    }
+                    else
+                    {
+                        return new Customer((Customer)customer);
+                    }                   
                 }
             }
         }
 
-        public Customer getCustomerByAccountNumber(string number)
+        public Customer getCustomerByAccountNumber(string number, bool withDetail)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -128,13 +141,22 @@ namespace DAO.Data
                         .Where(a => a.number == number)
                         .Fetch(c => c.customer).Eager
                         .SingleOrDefault();
-                    return ((Account)account).customer;
-                        
+
+                    Customer customer = account.customer;
+
+                    if (withDetail)
+                    {
+                        return mapDetailedCustomerData((Customer)customer);
+                    }
+                    else
+                    {
+                        return new Customer((Customer)customer);
+                    }                       
                 }
             }
         }
 
-        public Customer getCustomerByID(int id)
+        public Customer getCustomerByID(int id, bool withDeatail)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -143,20 +165,60 @@ namespace DAO.Data
                     Customer customer = session.QueryOver<Customer>()
                         .Where(c => c.customerId == id)
                         .SingleOrDefault();
-                    return (Customer)customer;
+
+                    if (withDeatail)
+                    {
+                        return mapDetailedCustomerData((Customer)customer);
+                    }
+                    else
+                    {
+                        return new Customer((Customer)customer);
+                    }
                 }
             }
         }
+
+        public int saveCustomer(Customer customer)
+        {
+            return save(customer);
+        }
+
+
+        //Mapper functions
 
         private List<Customer> mapToList(ICollection<Customer> customers)
         {
             List<Customer> listCustomers = new List<Customer>();
             foreach (Customer c in customers)
             {
-                listCustomers.Add(c);
+                listCustomers.Add(new Customer(c));
             }
 
             return listCustomers;
+        }
+
+        private Customer mapDetailedCustomerData(Customer customer)
+        {
+            Customer newCustomer = new Customer(customer);
+            
+            List<SaleItem> saleItems = new List<SaleItem>();
+            List<Transactions> transactions = new List<Transactions>();
+
+
+            foreach (SaleItem si in customer.saleItems)
+            {
+                saleItems.Add(si);
+            }
+
+            foreach (Transactions t in customer.transactions)
+            {
+                transactions.Add(t);
+            }
+
+            newCustomer.saleItems = saleItems;
+            newCustomer.transactions = transactions;
+
+            return newCustomer;
         }
     }
 }

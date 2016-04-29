@@ -44,7 +44,7 @@ namespace Tests.DAOTests
         [TestMethod]
         public void testGetItemByBarcode()
         {
-            Item item = dao.getItemByBarcode("1234-4324204324-234");
+            Item item = dao.getItemByBarcode("1234-4324204324-234", 1);
 
             printItem(item);
         }
@@ -52,7 +52,7 @@ namespace Tests.DAOTests
         [TestMethod]
         public void testGetItemByPartNo()
         {
-            Item item = dao.getItemByPartNo("4545454454");      
+            Item item = dao.getItemByPartNo("4545454454", 1);      
 
             printItem(item);
         }

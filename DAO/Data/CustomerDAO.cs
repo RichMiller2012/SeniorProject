@@ -18,10 +18,11 @@ namespace DAO.Data
         List<Customer> getCustomersByLastName(string name); 
         List<Customer> getCustomersByMiddleName(string name);
         List<Customer> getCustomersByStore(int storeId);
-        Customer getCustomerByPhoneNumber(string number);
-        Customer getCustomerByTransactionNumber(string transactionNumber);
-        Customer getCustomerByAccountNumber(string number);
-        Customer getCustomerByID(int id);
+        Customer getCustomerByPhoneNumber(string number, bool withDetail);
+        Customer getCustomerByTransactionNumber(string transactionNumber, bool withDetail);
+        Customer getCustomerByAccountNumber(string number, bool withDetail);
+        Customer getCustomerByID(int id, bool withDetail);
 
+        int saveCustomer(Customer customer);
     }
 }
