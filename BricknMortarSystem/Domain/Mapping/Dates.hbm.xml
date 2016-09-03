@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="BricknMortarSystem"
+                   namespace="Domain.Entities">
+
+  <class name="Dates">
+    <id name="dateId">
+      <generator class="native"/>
+    </id>
+
+    <property name="date" />
+  </class>
+  
+  
+</hibernate-mapping>

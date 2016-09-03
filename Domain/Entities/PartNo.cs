@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Domain.Entities
 {
@@ -10,7 +11,11 @@ namespace Domain.Entities
     {
         public virtual int partNoId { get; set; }
         public virtual string number { get; set; }
+
+        [JsonIgnore]
         public virtual Item item { get; set; }
+
+        [JsonIgnore]
         public virtual SaleItem saleItem { get; set; }
 
         public PartNo()

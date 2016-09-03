@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+<head>
+    <title>Hello World</title>
+    <link href="WebApp/Styles/styles.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="WebApp/Styles/styles.css" type="text/css" />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!--<script src="WebApp/Scripts/angular.min.js"></script>-->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+    <script src="WebApp/Scripts/app.js"></script>
+</head>
+<body>
+
+  <div id="wrapper">
+
+    <!-- Header Contents -->
+    <div id="header">
+        <a href="#/"><img src="WebApp/Resources/logo.png" class="header-logo"/></a>
+    </div>
+
+    <!-- Sidebar Components -->
+    <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li><a href="#pos">Conduct Point of Sale</a></li>
+                <li><a href="#inventory">Manage Inventory</a></li>
+                <li><a href="#customers">Manage Customers</a></li>
+                <li><a href="#reports">Reports and Alerts</a></li>
+                <li><a href="#transactions">View Transactions</a></li>
+                <li><a href="#discounts">Manage Discounts</a></li>
+            </ul>
+    </div>
+
+    <div class="main-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                  <h2>Templates Here</h2>
+                  <div ng-view></div>
+                </div>
+            </div>      
+        </div>
+    </div>
+ </div>
+
+
+<!-- Angular Controllers -->
+<script src="WebApp/Scripts/controllers/inventoryCtrl.js"></script>
+<script src="WebApp/Scripts/controllers/customerCtrl.js"></script>
+<script src="WebApp/Scripts/config/config.js"></script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

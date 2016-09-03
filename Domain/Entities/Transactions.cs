@@ -23,6 +23,7 @@ namespace Domain.Entities
         public Transactions()
         {
             saleItems = new List<SaleItem>();
+            date = DateTime.Now;
         }
 
         //copy constructor

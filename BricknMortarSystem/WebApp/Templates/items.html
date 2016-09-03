@@ -1,0 +1,27 @@
+﻿<h2>{{message}}</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Item ID</td>
+            <td>Item Name</td>
+            <td>Item Description</td>
+            <td>Retail Price</td>
+            <td>Wholesale Price</td>
+            <td>Item Quantity</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="i in items">
+            <td>{{i.itemId}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.description}}</td>
+            <td>{{i.retailPrice}}</td>
+            <td>{{i.wholesalePrice}}</td>
+            <td>{{i.quantity}}</td>
+            <td><button type="button" class="btn btn-primary">Edit</button></td>
+            <td><button type="button" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </tbody>
+</table>

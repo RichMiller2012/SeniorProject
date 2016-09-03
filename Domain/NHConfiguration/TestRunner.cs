@@ -5,7 +5,7 @@ using System.Text;
 using NHibernate.Tool.hbm2ddl;
 using System.Reflection;
 
-namespace DAO.Configuration
+namespace Domain.NHConfiguration
 {
     public class TestRunner
     {
@@ -13,20 +13,16 @@ namespace DAO.Configuration
         {
             LoadNHibernateCfg();
             Console.ReadKey();
+
         }
 
         public static void LoadNHibernateCfg()
         {
             var cfg = new NHibernate.Cfg.Configuration();
+            
             cfg.Configure();
-
-            Assembly ass = typeof(Domain.Entities.Account).Assembly;
-
-
-            cfg.AddAssembly("DAO");
-            cfg.AddAssembly(typeof(Domain.Entities.Account).Assembly);
+            cfg.AddAssembly("Domain");
             new SchemaExport(cfg).Execute(true, true, false);
-
         }
     }
 }

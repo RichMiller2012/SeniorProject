@@ -20,14 +20,14 @@ namespace Domain.Entities
         public virtual IList<Account> account { get; set; }
         public virtual IList<Transactions> transactions { get; set; }
         public virtual IList<SaleItem> saleItems { get; set; }
-        //public virtual IList<Store> stores { get; set; }
+        public virtual IList<Store> stores { get; set; }
 
         public Customer()
         {
             transactions = new List<Transactions>();
             saleItems = new List<SaleItem>();
             account = new List<Account>();
-           // stores = new List<Store>();
+            stores = new List<Store>();
         }
 
         //copy constructor

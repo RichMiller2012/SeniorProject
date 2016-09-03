@@ -1,0 +1,37 @@
+﻿<div class="row">
+    <div class="col-md-10">
+        <h2>{{message}}</h2>
+    </div>
+    <div class="col-md-2 customer-add-button">
+        <a href="#addcustomer" role="button" class="btn btn-lg btn-success">Add Customer</a>
+    </div>
+</div>
+<br />
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Customer Id</td>
+            <td>First Name</td>
+            <td>Middle Name</td>
+            <td>Last Name</td>
+            <td>Phone Number</td>
+            <td>Total Spent</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="p in people">
+            <td>{{p.customerId}}</td>
+            <td>{{p.firstName}}</td>
+            <td>{{p.middleName}}</td>
+            <td>{{p.total}}</td>
+            <td>{{p.phoneNumber}}</td>
+            <td>{{p.total}}</td>
+            <td>
+                <button type="button" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+           </td>
+        </tr>
+    </tbody>
+</table>

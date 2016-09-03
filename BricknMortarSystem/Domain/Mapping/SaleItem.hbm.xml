@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="BricknMortarSystem"
+                   namespace="Domain.Entities">
+
+  <class name="SaleItem">
+    <id name="saleItemId">
+      <generator class="native"/>
+    </id>
+
+    <property name="name"/>
+    <property name="salePrice"/>
+    <property name="quantity"/>
+    <many-to-one name="transaction" column="transactionId" cascade="all"/>
+
+    <bag name="barcodes" cascade="all">
+      <key column="saleItemId"/>
+      <one-to-many class="Barcode"/>
+    </bag>
+
+    <bag name="partNos" cascade="all">
+      <key column="saleItemId"/>
+      <one-to-many class="PartNo" />
+    </bag>
+
+    <bag name="customers" table="LinkCustomerSaleItem" cascade="all" inverse="true">
+      <key column="saleItemId"/>
+      <many-to-many class="Customer" column="customerId"/>
+    </bag>
+    
+  </class>
+</hibernate-mapping>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   assembly="SeniorProject"
+                   assembly="Domain"
                    namespace="Domain.Entities">
 
   <class name="Customer">
@@ -27,7 +27,7 @@
       <one-to-many class="Transactions"/>
     </bag>
 
-    <!--
+    
     <bag name="stores" table="LinkCustomerStore" cascade="all">
       <key>
         <column name="customerId"></column>
@@ -36,14 +36,6 @@
         <column name="storeId"></column>
       </many-to-many>
     </bag>
-    -->
-
-    <!--
-    <bag name="stores" table="LinkCustomerStore">
-      <key column="customerId"/>
-      <many-to-many class="Store" column="storeId"/>
-    </bag>
-    -->
 
     <bag name="saleItems" table="LinkCustomerSaleItem" cascade="all">
       <key column="customerId"/>

@@ -15,6 +15,7 @@ namespace Domain.Entities
 
         public virtual Transactions transaction { get; set; }
 
+        public virtual IList<Customer> customers { get; set; }
         public virtual IList<Barcode> barcodes { get; set; }
         public virtual IList<PartNo> partNos { get; set; }
 
@@ -29,6 +30,8 @@ namespace Domain.Entities
             partNos = item.partNos;
             name = item.name;
             salePrice = item.retailPrice;
+
+            customers = new List<Customer>();
         }
 
         //copy constructor
